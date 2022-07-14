@@ -25,6 +25,14 @@ const Home = () => {
     }, []) */
 
 
+    useEffect(() => {
+        console.log('Entrando a Home');
+        return () => {
+            console.log('Saliendo de Home');
+        }
+
+    }, [])
+
     return (
         <>
             {/* Header*/}
@@ -155,7 +163,7 @@ const Home = () => {
                                 <h2 className="fw-bolder">From our blog</h2>
                                 <p className="lead fw-normal text-muted mb-5">
                                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque
-                                    fugit ratione dicta mollitia. Officiis ad.
+                                    fugit ratione dicta mollitia. Officiis ad. <button className="btn btn-primary" onClick={actions.setMessage}>Click me</button>
                                 </p>
                             </div>
                         </div>
@@ -187,9 +195,11 @@ const Home = () => {
                                     <input
                                         className="form-control"
                                         type="text"
+                                        value={store.email}
                                         placeholder="Email address..."
                                         aria-label="Email address..."
                                         aria-describedby="button-newsletter"
+                                        onChange={actions.handleChange}
                                     />
                                     <button
                                         className="btn btn-outline-light"

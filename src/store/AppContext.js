@@ -8,6 +8,8 @@ const injectContext = Component => {
 
     const StoreWrapper = props => {
 
+        /* getStore: devuelve todo lo que esta dentro del atributo store */
+        /* getActions: devuelve todo lo que esta dentro del atributo actions */
         const [state, setState] = useState(getState({ 
             getStore: () => state.store,
             getActions: () => state.actions,
@@ -19,6 +21,7 @@ const injectContext = Component => {
 
         useEffect(() => {
             state.actions.getPosts();
+            state.actions.getUsers();
         }, [])
 
         return (
@@ -29,7 +32,6 @@ const injectContext = Component => {
     }
 
     return StoreWrapper;
-
 }
 
 export default injectContext;

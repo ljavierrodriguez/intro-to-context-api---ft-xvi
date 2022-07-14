@@ -26,6 +26,13 @@ const Blog = () => {
         getPosts();
     }, []) */
 
+    useEffect(() => {
+        console.log('Entrando a Blog');
+        return () => {
+            console.log('Saliendo de Blog');
+        }
+    }, [])
+
     return (
         <>
             {/* Page Content*/}
